@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programing-C</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <!-- outLine css here -->
+     <style>
+
+*::before,
+*::after{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    outline: 0;
+
+
+}
+body{
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-size: 18px;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.container{
+    width: 500px;
+    margin: auto;
+}
+#rainBowColor{
+   
+    margin: 40px auto;
+}
+#rainBowColorEx{
+   
+    margin-left: 0px ;
+}
+
+#btn{
+    margin: 1.5rem 0;
+  
+    padding: 10px 5px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+     background:linear-gradient(rgb(255, 0, 0),rgb(66,77,6),rgb(66,77,6),rgb(51, 255, 0),rgb(0, 47, 255));
+    
+    color: aliceblue;
+    font-weight: 600;
+    text-shadow: #56fdef64;
+
+}
+.rain-bow{
+    width:350px ;
+    height: 350px;
+    border-radius: 50%;
+ 
+    position: relative;
+
+}
+.rain-bow-single1{
+    width: 350px;
+    height: 350px;
+    background-color:  #ffffff;
+   
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 994;
+}
+.rain-bow-single2{
+    width: 300px;
+    height: 300px;
+    background-color: #ffffff;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 995;
+}
+.rain-bow-single3{
+    width: 250px;
+    height: 250px;
+    background-color: #ffffff;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 996;
+}
+.rain-bow-single4{
+    width: 200px;
+    height: 200px;
+    background-color:  #ffffff;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 996;
+}
+.rain-bow-single5{
+    width: 150px;
+    height: 150px;
+    background-color: #ffffff;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 997;
+}
+.rain-bow-single6{
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 998;
+    text-align: center;
+}
+.rain-bow-single7{
+    width: 50px;
+    height: 50px;
+    background-color:  #ffffff;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 999;
+    text-align: center;
+}
+/* .rain-bowexample =====================================*/
+
+.rain-bow-single8{
+    width: 350px;
+    height: 350px;
+    background-color:red;
+   
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 994;
+}
+.rain-bow-single9{
+    width: 300px;
+    height: 300px;
+    background-color: orange;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 995;
+}
+.rain-bow-single10{
+    width: 250px;
+    height: 250px;
+    background-color: yellow;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 996;
+}
+.rain-bow-single11{
+    width: 200px;
+    height: 200px;
+    background-color:  green;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 996;
+}
+.rain-bow-single12{
+    width: 150px;
+    height: 150px;
+    background-color:blue;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 997;
+}
+.rain-bow-single13{
+    width: 100px;
+    height: 100px;
+    background-color: indigo;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 998;
+    text-align: center;
+}
+.rain-bow-single14{
+    width: 50px;
+    height: 50px;
+    background-color: purple;
+    border: 3px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 999;
+    text-align: center;
+}
+
+
+
+
+
+
+     </style>
+
+
+
+</head>
+<body>
+
+    <section  id="rain-bow-section">
+    
+    <div class="container" >
+        <div class="rain-bow" id="rainBowColor">
+            <div class="rain-bow-single1"id="red" >red color</div>
+            <div class="rain-bow-single2" id="orange"></div>
+            <div class="rain-bow-single3" id="yellow"></div>
+            <div class="rain-bow-single4" id="green"></div>
+            <div class="rain-bow-single5" id="blue"></div>
+            <div class="rain-bow-single6" id="indigo"></div>
+            <div class="rain-bow-single7" id="purple"></div>
+
+
+          
+        </div>
+        <h3 style="text-align: center; color: rgba(86, 156, 156, 0.673);"> Lets make <span style="color: RED;">R</span><span style="color: orange;">a</span><span style="color:yellow;">i</span><span style="color: green;">n</span><span style="color: blue;">b</span><span style="color:indigo;">o</span><span style="color:purple;">w</span> same to under iteam</h3>
+        
+    
+      
+            <div class="rain-bow" id="rainBowColorEx">
+                <div class="rain-bow-single8"id="redExample" >red color</div>
+                <div class="rain-bow-single9" id="orange"></div>
+                <div class="rain-bow-single10" id="yellow"></div>
+                <div class="rain-bow-single11" id="green"></div>
+                <div class="rain-bow-single12" id="blue"></div>
+                <div class="rain-bow-single13" id="indigo"></div>
+                <div class="rain-bow-single14" id="purple"></div>
+    
+   
+              
+            </div>
+            <h1 style="text-align: center;"><span style="color: RED;">R</span><span style="color: orange;">A</span><span style="color:yellow;">I</span><span style="color: green;">N</span><span style="color: blue;">B</span><span style="color:indigo;">O</span><span style="color:purple;">W</span></h1>
+        </div>
+    </section>
+
+
+        <!-- <p id="getColor"></p>
+        <p id="getColorValue">get number</p>
+        <h1 id="totalNum">Total Number</h1>
+        <button id="getColorBtn" style="background-color: blue; padding: 10px 20px;"></button> -->
+   
+
+        <!-- <h1>Change background color clicked by gerarated rgb</h1> -->
+        
+
+
+    <!-- <script src="main.js"></script> -->
+
+    <script>
+"use strict"
+window.onload=()=>{
+    main();
+    
+}
+
+function main(){
+
+const redColor=document.getElementById('red');
+const orangeColor=document.getElementById('orange');
+const yellowColor=document.getElementById('yellow');
+const greenColor=document.getElementById('green');
+const blueColor=document.getElementById('blue');
+const indigoColor=document.getElementById('indigo');
+const purpleColor=document.getElementById('purple');
+redColor.addEventListener('click',function(){
+
+    redColor.style.backgroundColor=puzzle();
+});
+orangeColor.addEventListener('click',function(){
+
+    orangeColor.style.backgroundColor=puzzle();
+});
+yellowColor.addEventListener('click',function(){
+
+    yellowColor.style.backgroundColor=puzzle();
+});
+greenColor.addEventListener('click',function(){
+
+    greenColor.style.backgroundColor=puzzle();
+});
+blueColor.addEventListener('click',function(){
+
+    blueColor.style.backgroundColor=puzzle();
+});
+indigoColor.addEventListener('click',function(){
+
+    indigoColor.style.backgroundColor=puzzle();
+});
+purpleColor.addEventListener('click',function(){
+
+    purpleColor.style.backgroundColor=puzzle();
+});
+
+}
+
+
+
+
+
+    
+ 
+    function puzzle(){
+        const red= Math.floor(Math.random()*255);
+        const green= Math.floor(Math.random()*255);
+        const blue= Math.floor(Math.random()*255);
+        return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
+    
+    }
+    const results =puzzle()
+   
+      
+    
+    
+    
+
+
+
+    </script>
+   
+</body>
+</html>
