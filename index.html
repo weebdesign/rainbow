@@ -308,15 +308,36 @@ purpleColor.addEventListener('click',function(){
 
     
  
-    function puzzle(){
-        const red= Math.floor(Math.random()*255);
-        const green= Math.floor(Math.random()*255);
-        const blue= Math.floor(Math.random()*255);
-        return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
+    // function puzzle(){
+    //     const red= Math.floor(Math.random()*255);
+    //     const green= Math.floor(Math.random()*255);
+    //     const blue= Math.floor(Math.random()*255);
+    //     return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
     
-    }
-    const results =puzzle()
-   
+    // }
+    // const results =puzzle()
+
+
+
+
+
+
+        
+       function puzzle(){
+        const randomnumbr=["red","aqua","azure","black","blueviolet","brown","burlywood","orange","cadetblue",
+            "chocolate","coral","crimson","cornsilk","cyan","chartreuse","darkblue","darkorange","orchid","darkorchid",
+            "darkolive","darkonange","darkred","darkred","darkgreen","darkyellow","darkviolet","darkblue","darkindigo","yellow",
+            "red","firebrick","fuchsia","gold","gray","greenyellow","green","hotpink","maroon","mediumnightblue","blue",
+            "navajowhite","navy","olive","orangered","palegreen","pulm","peru","rayalblue","indigo","purple"]
+        
+
+         const randomindex=Math.floor(Math.random()*7)
+        const  indexnmbr =randomnumbr[randomindex]
+       return indexnmbr
+       
+       }
+      
+      puzzle()
       
     
     
