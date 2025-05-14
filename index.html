@@ -1,3 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quiz.css">
+    <!-- link google font     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Quiz Apps</title>
+
+<!-- out CSS -->
+ <style>
+    *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+
+}
+
+.header{
+    top: 0%;
+    left: 0%;
+    width:100%;
+    padding: 20px 10px;
+    background: seagreen;
+    display: flex;
+    justify-content: space-between;
+   padding-left:80px;
+   padding-right:80px;
+   align-items: center;
+  
+
+
+}
+.navbar a{
+    color: #fff;
+    text-decoration: none;
+    align-items: center;
+    margin-left: 20px;
+    transition: .5s;
+    
+
+}
+.navbar a:hover{
+    background: indigo;
+    padding: 10px 20px;
+    border-radius: 5%;
+  
+    
+
+}
+.navbar {
+   
+    margin-right: 60px;
+
+
+}
+.logo{
+    color: orange;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: 800;
+
+}
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    background:black;
+  }
+  .main{
+    height: 100vh;
+    background: url("images/bg_quiz.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: fixed;
+    transition: .5s ease;
+  }
+  .container{
+    display: flex;
+    height:100vh;
+    width: 200%;
+  }
+
+  .main.active{
+    filter: blur(16px);
+   
+  }
+  .home{
+    position: relative;
+    left: -50%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  .home-content{
+    width: 400px;
+    display: flex;
+  
+    align-items: center;
+    color: #fff;
+    flex-direction: column;
+    
+  }
+  .home-content h1{
+    font-size: 32px;
+    font-weight: 600;
+    box-shadow: 1px 1px 3px 1px;
+    padding: 0 20px;
+  }
+  .home-content p{
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    margin: 50px 0;
+   
+    
+  }
+  .start-btn{
+    width: 160px;
+    height: 50px;
+    background-color: rgb(121, 18, 219);
+    border: 2px solid white;
+    outline: none;
+    box-shadow: 0 0 10 rgb(121, 18, 219);
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 6px;
+
+
+  }
+  .start-btn:hover{
+    background: green;
+  }
+  .btn:hover{
+    background-color: rgba(137, 43, 226, 0.552);
+  }
+  .popup-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    background-color: wheat;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+
+  }
+  .popup-info.active{
+    opacity: 1;
+    transform:translate(-50%,-50%) scale(1);
+    pointer-events: auto;
+  }
+
+  .popup-info h2{
+    color: #c40094;
+     font-size:58px;
+
+  }
+  .popup-info .info{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin:5px 0 ;
+   
+  }
+  .popup-info .btn-group{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+     border-top: 1px solid gray;
+     margin-top: 10px;
+     padding: 15px 10px;
+
+  }
+  .popup-info .btn-group .info-btn{
+    display: inline-flex;
+  
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 130px;
+    height: 45px;
+    background-color: #c40094;
+    border: 2px solid #c40094;
+    outline: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .5s;
+
+  }
+  .popup-info .btn-group .info-btn:nth-child(1){
+    background: transparent;
+    color: #c40094;
+  }
+  .popup-info .btn-group .info-btn:nth-child(1):hover{
+    color: #fff;
+    background: #c40094;
+  }
+  .popup-info .btn-group .info-btn:nth-child(2):hover{
+    
+    background: #950170;
+    border-color: #950170;
+  }
+
+  /* Quiz section code ==============================================================*/
+  .quiz-section{
+    width: 100%;
+    position: relative;
+    left: -60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* left: 0; */
+    color: #fff;
+   background:#0d204c;
+   transition: .9s ease-in-out;
+   transition-delay: .5s;
+   z-index: 666;
+
+  }
+  .quiz-section.active{
+    left: 0;
+  }
+  .quiz-section .quiz-box{
+    position: relative;
+    width: 350px;
+    background: transparent;
+   
+    box-shadow: 1px 1px 5px 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+  }
+  .quiz-section .quiz-box.active{
+    opacity: 1;
+    pointer-events:auto;
+    transform: scale(1);
+    transition: 2s ease;
+    transition-delay: 1s ;
+
+  }
+  .quiz-box h1{
+    background: linear-gradient(45deg,transparent,#950170,transparent);
+    text-align: center;
+    color: white;
+    border-radius: 6px;
+
+  }
+  .quiz-header{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20px 0;
+    color: green;
+    /* border-bottom: 2px solid #950170; */
+   
+   
+
+  }
+  .quiz-header span{
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .quiz-header .score{
+    background: linear-gradient(45deg,transparent,purple,transparent);
+    padding: 6px 8px;
+   
+   
+  }
+
+  .option-list .option{
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    /* border: 2px solid gray; */
+    box-shadow:1px 1px 5px 1px white;
+    border-radius: 4px;
+    margin: 15px 0;
+    cursor: pointer;
+    background: indigo;
+    font-weight: 600;
+  }
+  .option-list .option:hover{
+   background: rgba(76, 0, 130, 0.528);
+  }
+  /* dinamaticully genarated =========================================*/
+   .option-list .option.correct{
+   background:#0d0420;
+    color: green;
+    border: 2px solid green;
+
+  }
+  .option-list .option.disabled{
+    pointer-events: none;
+  }
+  
+  
+    .option-list .option.incorrect{
+    background:#0d0420;
+    color: red;
+    border: 2px solid red;
+    
+  }
+  .option-list .option:hover{
+    background: (255,255,255,1);
+    border-color: (255,255,255,1);
+  }
+    .quiz-footer {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+  
+   margin-top: 20px;
+   border-top: 2px solid gray;
+   padding-top:  20px ;
+   margin-top: 30px;
+
+  } 
+  .quiz-footer .question-total{
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .quiz-footer .next-btn{
+    font-size: 18px;
+    width: 90px;
+    height: 42px;
+    background-color: #333;
+    /* padding: 5px 12px; */
+    color: #fff;
+    border-radius: 5px;
+    outline: none; 
+    pointer-events: none;
+
+  }
+  
+
+  /* dinamaticully next button ===============*/
+   .quiz-footer .next-btn.active{
+    pointer-events: auto;
+    background-color: #c40094;
+     border-color: #c40094;
+    color: #fff;
+   }
+   .quiz-footer .next-btn:active hover{
+    background: #950170;
+    border-color: #c40094;
+
+  }
+
+  /* IMAGE SETUP */
+  .home-content .setup-imagrs{
+    background-image:url("images/quiz.jpg");
+    
+  }
+
+  
+
+ </style>
+</head>
+<body>
+    <main class="main">
+        <!-- <header class="header">
+            <a href="#" class="logo">Quiz</a>
+            <nav class="navbar">
+                <a href="#">HOME</a>
+                <a href="#">ABOUT</a>
+                <a href="#">SERVICES</a>
+                <a href="#">CONTACT</a>
+
+            </nav>
+        </header> -->
+        <div class="container">
+            <section class="quiz-section">
+                <div class="quiz-box">
+                    <h1>QUIZ APP</h1>
+                    <div class="quiz-header">
+                    
+                    <span>Quiz Website tutorials</span>
+
+                    <span class="header-score">Score:0/15</span>
+                </div>
+
+                
+                    <h3 class="questions-test">What is the  capital of  bangladesh ?</h3>
+               
+              
+                <div class="option-list">
+                     <div class="option"><span>A. Dhaka</span></div>
+                    <div class="option"><span>B. Rajshahi</span>
+                    </div>
+                    <div class="option"><span>C. Khulna</span>
+                    </div>
+                    <div class="option"><span>B. Chattogram</span>
+                    </div> 
+                     
+                </div>
+                <div class="quiz-footer">
+                        <span class="question-total">1 of 5 Questions</span>
+                        <button class="next-btn">Next</button>
+                    </div>
+                
+
+            </section>
+        <section class="home">
+            <div class="home-content">
+                <h1>Quiz Website</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos 
+                     voluptatem a culpa ratione fugit eius enim voluptate ullam! Temporibus aspernatur 
+                     omnis quas ipsa nam adipisci numquam voluptatum nostrum aut</p>
+                <button class="start-btn">Start Quiz</button>
+            </div>
+            </div>
+
+        </section>
+    </div>
+    </main>
+    <div class="popup-info">
+        <h2>Quiz Guide</h2>
+        <span class="info">1.,Lorem ipsum dolor sit, amet consectetur adipisicing elit.</span>
+        <span class="info">2.,Lorem ipsum dolor sit, amet consectetur adipisicing .</span>
+        <span class="info">3.,Lorem ipsum dolor sit, amet consectetur </span>
+        <span class="info">1.,Lorem ipsum dolor sit, amet </span>
+        <span class="info">1.,Lorem ipsum dolor sit</span>
+        <div class="btn-group">
+            <div class="info-btn exit-btn">Exit Quiz</div>
+            <a href="#" class="info-btn continue-btn"> Continue </a>
+        </div>
+    </div>
+   <!-- <script src="custom.js"></script>
+   <script src="questions.js"></script> -->
+
+   <script>
+    let questions=[
+    {
+        num:1,
+        questions:" পবিত্র কোরআনে  সর্বপ্রথম আয়াতে কি উপদেশ দেওয়া হয়েছে?  ",
+        answer: "(ক)পড়",
+        option:[
+            "(ক)পড়", "(খ)লেখ", "(গ)জ্ঞান অর্জন করো", "(ঘ)কাজ করো"
+            
+        ]
+    },
+    {
+        num:2,
+        questions:" পাহাড়পুর কোথায় অবস্থিত?", 
+        answer:"(ক) নওগাঁ",
+        option:[
+            "(ক) নওগাঁ",
+            "(খ) জয়পুরহাট",
+            "(গ) নাটোর",
+            "(ঘ) চাপাইনবয়াবগঞ্জ "
+            
+   
+            
+        ]
+    },
+    {
+        num:3,
+        questions:"কুসুম্বা মসজিদ কোথাই অবস্থিত ?  ",
+        answer:" (ক) নওগাঁ ",
+        option:[
+            "(ক) বাগেরহাট",
+            " খ) কুমিল্লা",
+            " (ক) নওগাঁ ",
+            "(ঘ) চাপাইনবয়াবগঞ্জ ",
+            
+        ]
+        
+  
+    },
+    {
+        num:4,
+        questions: " নিচের কোনটি জংশন স্টেশন ? ",
+        answer:"(গ) সান্তাহার ",
+        option:[
+            "(ক) নাটোর",
+             "(খ) জয়পুরহাট ",
+             "(গ) সান্তাহার ",
+             " (ঘ) বগুড়া",
+
+           
+ 
+        ]
+    },
+    {
+        num:5,
+        questions:" কাসার জন্য বিখ্যাত জেলা কোনটি? ",
+        answer:"(খ) নওগাঁ",
+        option:[
+            "(ক) নড়াইল",
+            "(খ) নওগাঁ",
+            "(গ) টাংগাইল  ",
+            "(ঘ) নারায়নগঞ্জ",
+            
+
+
+            
+        ]
+        
+ 
+    },
+     {
+        num:6,
+        questions: " নিচের কোনটি ইনপুট এবং আউট হিসাবে উভয় ডিভাইস হিসাবে ব্যবহার করা হয়---- ",
+        answer:"(খ)মডেম ",
+        option:[
+            "(ক)মাউস",
+             "(খ)মডেম ",
+             " (গ)কিবোর্ড",
+             " (ঘ)প্লটার",
+
+           
+ 
+ 
+ 
+        ]
+    },
+     {
+        num:7,
+        questions: "  রাশিয়ার মুদ্রার নাম কি? ",
+        answer:"(খ) রুবল",
+        option:[
+            "(ক) র‍্যান্ড",
+             "(খ) রুবল",
+             " ((গ) পেসো",
+             " ((ঘ) ডলার) ",
+
+           
+ 
+        ]
+        
+  
+    },
+     {
+        num:8,
+        questions: " বিশ্বে কোন ভাষায় মানুষ বেশি কথা বলে? ",
+        answer:"(ঘ) মান্দারিন",
+        option:[
+            "(ক) ইংরেজি ",
+             "(খ) স্পানিস ",
+             " (গ) পর্তুগিজ",
+             "(ঘ) মান্দারিন",
+
+           
+ 
+        ]
+        
+   
+    },
+     {
+        num:9,
+        questions: " লেবুতে কোন এসিড থাকে?",
+        answer:" (ঘ)সাইট্রিক এসিড ",
+        option:[
+            "(ক)ম্যালিক এসিড ",
+             "((খ)অক্সালিক এসিড",
+             "(গ)এসিটিক এসিড  ",
+             " (ঘ)সাইট্রিক এসিড ",
+
+           
+
+  
+ 
+        ]
+    },
+     {
+        num:10,
+        questions: " আর্জেন্টিনা সর্বপ্রথম কত সালে বিশ্বচাম্পিয়ন হয়? ",
+        answer:" (খ) ১৯৭৮ ",
+        option:[
+            "(ক) ১৯৬২",
+             " (খ) ১৯৭৮ ",
+             " গ) ১৯৮৬",
+             " (ঘ) ১৯৯০ ",
+
+           
+ 
+        ]
+        
+
+
+ 
+ 
+    },
+        {
+        num:11,
+        questions: " ন্যাটোর  বর্তমান সদস্য দেশ কয়টি?  ",
+        answer:"(খ) ৪৮ ",
+        option:[
+            "(ক) ৫৯",
+             "(খ) ৪৮ ",
+             " (গ) ৪৭ ",
+             " (ঘ) ৪৫ ",
+
+           
+ 
+        ]
+    },
+        {
+        num:12,
+        questions: " বাতাশের শহর বলা হয় ?  ",
+        answer:"(ক) শিকাগো ",
+        option:[
+            "(ক) শিকাগো ",
+             "(খ) বুয়েন্স -আয়ার্স ",
+             " (গ) ফান্সিস্কো ",
+             " (ঘ) জুরিখ ",
+
+           
+  
+
+
+ 
+ 
+        ]
+    },
+        {
+        num:13,
+        questions: " বাংলাদেশের সীমান্তবর্তী জেলা কয়টি? ",
+        answer:"(খ) ৩২",
+        option:[
+            "(ক) ৩০",
+             "(খ) ৩২",
+             "(গ) ২৮ ",
+             "(ঘ) ৩৩",
+
+           
+ 
+        ]
+    },
+        {
+        num:14,
+        questions: " পবিত্র কোরআনে মক্কায় অবতির্ণ সুরার সংখ্যা কত?  ",
+        answer:"(ক) ৮৬",
+        option:[
+            "(ক) ৮৬",
+             "(খ) ৮০ ",
+             " ((গ) ৯০ ",
+             "  (ঘ) ৮৮ ",
+
+           
+  
+ 
+        ]
+    },
+        {
+        num:15,
+        questions: " পবিত্র কোরআনে বর্নিত সুরা যার অর্থ নগর /শহর  নিচের কোনটি?  ",
+        answer:"(গ) বালাদ",
+        option:[
+            "(ক) রাদ ",
+             "(খ) হাদিদ",
+             "(গ) বালাদ",
+             " (ঘ) বুরুজ ",
+
+           
+ 
+ 
+ 
+        ]
+    },
+      {
+        num:16,
+        questions: " বাংলাদেশে আন্তর্জাতিক বিমানবন্দর কয়টি? ",
+        answer:"(খ) ৩ ",
+        option:[
+            "(ক) ২  ",
+             "(খ) ৩ ",
+             "(গ) ৪",
+             " (ঘ) ৫",
+
+           
+ 
+
+  
+ 
+ 
+        ]
+    },
+      {
+        num:17,
+        questions: " পবিত্র কোরআনে ৩০ পারায় কোন সুরায় নবী ইব্রাহিম (আঃ) ও মুসা (আঃ) দুইজনের নাম একই আয়াতে আসছে?  ",
+        answer:"(ক) সূরা আ'লা",
+        option:[
+            "(ক) সূরা আ'লা",
+             "(খ) সূরা বুরুজ ",
+             " (গ) সূরা ফজর",
+             " (ঘ) সূরা ইনশিরাহ",
+
+           
+ 
+ 
+ 
+ 
+        ]
+    },
+      {
+        num:18,
+        questions: "  জিবনে যা কিছু পেয়েছো তার জন্য তার জন্য অহংকার করোনা যা হারিয়েছে তার জন্য দুঃখ ও  এতেই তোমার জন্য মংগল নিহিত রহিয়াছে আমি যা জানি তোমরা তা জানোনা কোন জিনিসে তোমাদের মংগল উত্ত আয়াতটি কোন সুরায় উল্লেখ আছে? ",
+        answer:"(গ) সূরা হাদিদ",
+        option:[
+            "(ক) সূরা আনকাবুত",
+             "(খ) সূরা নমল ",
+             "(গ) সূরা হাদিদ",
+             " (ঘ) সুরা ফুরকান",
+
+           
+ 
+
+ 
+        ]
+    },
+      {
+        num:19,
+        questions: " পানিসেচ পদ্ধতি আবিষ্কার করে কোন সভ্যতা? ",
+        answer:"(খ) ইনকা",
+        option:[
+            "(ক) ব্যাবিলিয়ন  ",
+             "(খ) ইনকা",
+             " (গ) রোম ",
+             " (ঘ) পারস্য ",
+
+           
+ 
+
+
+
+ 
+ 
+        ]
+    },
+      {
+        num:20,
+        questions: " মানুষের চোখের রং নিয়ন্ত্রণ করে----",
+        answer:"(খ) DNA ",
+        option:[
+            "(ক) RNA ",
+             "(খ) DNA ",
+             "(গ) সেন্ট্রোমিয়ার",
+             " (ঘ) নিউক্লিওয়াস",
+
+           
+ 
+ 
+ 
+ 
+ 
+        ]
+    },
+
+]
+
+// setup program=====================================
+
+// "use strict"
+const startBtn=document.querySelector(".start-btn");
+const exitBtn=document.querySelector(".exit-btn");
+const popupInfo=document.querySelector(".popup-info");
+const main=document.querySelector(".main");
+const continueBtn=document.querySelector(".continue-btn");
+const quizSection=document.querySelector(".quiz-section");
+const quizBox=document.querySelector(".quiz-box");
+
+
+
+startBtn.onclick=()=>{
+    popupInfo.classList.add("active");
+    main.classList.add("active");
+}
+// startBtn.onclick=()=>{
+//     popupInfo.classList.add("active");
+// }
+exitBtn.onclick=()=>{
+    popupInfo.classList.remove("active");
+    main.classList.remove("active");
+}
+continueBtn.onclick=()=>{
+    quizSection.classList.add("active");
+    quizBox.classList.add("active");
+    popupInfo.classList.remove("active");
+    main.classList.remove("active");
+    
+    showQuestions(0); 
+    questionCounter(1);
+    headerScore();
+}
+
+let questionCount=0;
+let questionNum=1;
+let userScore=0;
+const nextBtn=document.querySelector(".next-btn")
+
+nextBtn.onclick=()=>{
+    if(questionCount<questions.length+1){
+    questionCount++;
+    showQuestions(questionCount);
+    questionNum++;
+    questionCounter(questionNum);
+    nextBtn.classList.remove('active');
+    }
+    else{
+        alert("Question Complete")
+    }
+}
+const optionList=document.querySelector(".option-list")
+// showQuestions();
+// getting question and option from array
+
+function showQuestions(index) {
+    const questionText=document.querySelector(".questions-test");
+    questionText.textContent=`${questions[index].num}. ${questions[index].questions}`;
+
+    let optionTag=`<div class="option"><span>${questions[index].option[0]}</span></div>
+    <div class="option"><span>${questions[index].option[1]}</span></div>
+    <div class="option"><span>${questions[index].option[2]}</span></div>
+    <div class="option"><span>${questions[index].option[3]}</span></div>`
+
+      optionList.innerHTML=optionTag;
+      const option=document.querySelectorAll(".option");
+      for(let  i=0; i<option.length;i++){
+        option[i].setAttribute("onclick","optionSelected(this)")
+      }
+    }
+      function optionSelected(answer){
+        let useAnswer=answer.textContent;
+        let correctAnswer=questions[questionCount].answer;
+        let alloption=optionList.children.length;
+       
+          if(useAnswer==correctAnswer){
+            console.log('Answer is Correct');
+            answer.classList.add('correct');
+            userScore +=1;
+            headerScore();
+             nextBtn.classList.add('active')
+        }
+        else{
+          
+          // if user select desable all option
+            answer.classList.add('incorrect');
+            for(let i=0; i<alloption;i++){
+  optionList.children[i].classList.add("disabled")
+   nextBtn.classList.add('active')
+        
+}
+// if incorrect answer auto select correct answer
+          for(let i=0; i<alloption;i++){
+            if(optionList.children[i].textContent==correctAnswer
+             
+            ){ optionList.children[i].setAttribute('class',"option correct")
+              
+            }
+  
+}
+
+
+        }
+        }
+       
+      
+
+
+      
+
+
+function questionCounter(index){
+    const questionTotal=document.querySelector(".question-total");
+    questionTotal.textContent= `${index} of ${questions.length} questions `;
+
+}
+// for user score
+function headerScore(){
+  const headerScore=document.querySelector('.header-score')
+  headerScore.textContent=`Score: ${userScore} / ${questions.length}`
+}
+
+
+
+
+
+
+   </script>
+
+
+   
+    
+    
+</body>
+</html>
+<!-- ======================================================================================================= -->
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
